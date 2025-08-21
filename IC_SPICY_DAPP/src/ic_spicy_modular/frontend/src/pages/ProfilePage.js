@@ -6,7 +6,7 @@ import { idlFactory as game_idlFactory } from '../declarations/game';
 import { CANISTER_IDS } from '../config';
 
 const ProfilePage = () => {
-  const { principal, plugConnected, connectPlug, disconnectPlug } = useWallet();
+  const { principal, plugConnected, iiLoggedIn, canisters } = useWallet();
   const [profile, setProfile] = useState({
     username: '',
     email: '',
@@ -30,12 +30,14 @@ const ProfilePage = () => {
   const [gameActor, setGameActor] = useState(null);
 
   useEffect(() => {
-    if (plugConnected && principal) {
+    const isWalletConnected = (plugConnected || iiLoggedIn) && principal && canisters.profile && canisters.membership && canisters.game;
+    if (isWalletConnected) {
       (async () => {
         try {
-          const profileA = await window.ic.plug.createActor({ canisterId: profile_idlFactory.canisterId, interfaceFactory: profile_idlFactory });
-          const membershipA = await window.ic.plug.createActor({ canisterId: membership_idlFactory.canisterId, interfaceFactory: membership_idlFactory });
-          const gameA = await window.ic.plug.createActor({ canisterId: game_idlFactory.canisterId, interfaceFactory: game_idlFactory });
+          // Use the canisters from WalletContext instead of creating new actors
+          const profileA = canisters.profile;
+          const membershipA = canisters.membership;
+          const gameA = canisters.game;
           
           setProfileActor(profileA);
           setMembershipActor(membershipA);
@@ -75,7 +77,7 @@ const ProfilePage = () => {
         }
       })();
     }
-  }, [plugConnected, principal]);
+  }, [plugConnected, iiLoggedIn, principal, canisters.profile, canisters.membership, canisters.game]);
 
   const handleSaveProfile = async () => {
     if (!profileActor || !principal) return;
@@ -138,16 +140,16 @@ const ProfilePage = () => {
     }
   };
 
-  if (!plugConnected) {
+  const isWalletConnected = (plugConnected || iiLoggedIn) && principal && canisters.profile;
+  
+  if (!isWalletConnected) {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen">
-        <h2 className="text-2xl mb-4">Connect your Plug wallet to access your profile!</h2>
-        <button
-          onClick={connectPlug}
-          className="bg-yellow-400 text-black font-bold px-6 py-3 rounded-lg shadow hover:bg-yellow-500 transition"
-        >
-          Connect Plug Wallet
-        </button>
+        <h2 className="text-2xl mb-4">Connect your wallet to access your profile!</h2>
+        <div className="text-center space-y-3">
+          <p className="text-gray-400">Supported wallets: Plug, Internet Identity, OISY, NFID</p>
+          <p className="text-blue-300">Please connect your wallet from the main navigation menu</p>
+        </div>
       </div>
     );
   }

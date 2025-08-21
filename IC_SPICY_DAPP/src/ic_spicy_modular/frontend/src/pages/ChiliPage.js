@@ -4,7 +4,7 @@ import { idlFactory as chili_idlFactory } from '../declarations/chili';
 import { CANISTER_IDS } from '../config';
 
 const ChiliPage = () => {
-  const { principal, plugConnected, connectPlug } = useWallet();
+  const { principal, plugConnected, iiLoggedIn, canisters } = useWallet();
   const [chiliNFTs, setChiliNFTs] = useState([]);
   const [myNFTs, setMyNFTs] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -29,25 +29,27 @@ const ChiliPage = () => {
   ];
 
   useEffect(() => {
-    if (plugConnected && principal) {
+    const isWalletConnected = (plugConnected || iiLoggedIn) && principal && canisters.chili;
+    if (isWalletConnected) {
       (async () => {
         try {
-          const a = await window.ic.plug.createActor({ canisterId: CANISTER_IDS.chili, interfaceFactory: chili_idlFactory });
-          setActor(a);
+          // Use the canister from WalletContext instead of creating a new actor
+          const chiliActor = canisters.chili;
+          setActor(chiliActor);
           
           // Fetch all chili NFTs
-          const allNFTs = await a.getAllChiliNFTs();
+          const allNFTs = await chiliActor.getAllChiliNFTs();
           setChiliNFTs(allNFTs);
           
           // Fetch user's NFTs
-          const userNFTs = await a.getUserChiliNFTs(principal);
+          const userNFTs = await chiliActor.getUserChiliNFTs(principal);
           setMyNFTs(userNFTs);
         } catch (error) {
           console.error('Error fetching chili NFTs:', error);
         }
       })();
     }
-  }, [plugConnected, principal]);
+  }, [plugConnected, iiLoggedIn, principal, canisters.chili]);
 
   const handleMintNFT = async (e) => {
     e.preventDefault();
@@ -158,16 +160,16 @@ const ChiliPage = () => {
     return 'text-green-500';
   };
 
-  if (!plugConnected) {
+  const isWalletConnected = (plugConnected || iiLoggedIn) && principal && canisters.chili;
+  
+  if (!isWalletConnected) {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen">
-        <h2 className="text-2xl mb-4">Connect your Plug wallet to access Chili NFTs!</h2>
-        <button
-          onClick={connectPlug}
-          className="bg-yellow-400 text-black font-bold px-6 py-3 rounded-lg shadow hover:bg-yellow-500 transition"
-        >
-          Connect Plug Wallet
-        </button>
+        <h2 className="text-2xl mb-4">Connect your wallet to access Chili NFTs!</h2>
+        <div className="text-center space-y-3">
+          <p className="text-gray-400">Supported wallets: Plug, Internet Identity, OISY, NFID</p>
+          <p className="text-blue-300">Please connect your wallet from the main navigation menu</p>
+        </div>
       </div>
     );
   }

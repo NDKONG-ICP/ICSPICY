@@ -3,7 +3,7 @@ import { useWallet } from '../WalletContext';
 import { validateForm, rateLimiter, auditLog, handleError } from '../utils/security';
 
 const PortalPage = () => {
-  const { principal, plugConnected, connectPlug, canisters } = useWallet();
+  const { principal, plugConnected, iiLoggedIn, canisters } = useWallet();
   const [stakeInput, setStakeInput] = useState('');
   const [lockMonths, setLockMonths] = useState(3);
   const [userStake, setUserStake] = useState(null);
@@ -254,29 +254,34 @@ const PortalPage = () => {
 
   // Load data on component mount and when wallet connects
   useEffect(() => {
-    if (plugConnected && canisters.portal) {
+    const isWalletConnected = (plugConnected || iiLoggedIn) && principal && canisters.portal;
+    if (isWalletConnected) {
       loadUserStake();
       loadTotalStaked();
       loadProposals();
     }
-  }, [plugConnected, canisters.portal, principal]);
+  }, [plugConnected, iiLoggedIn, principal, canisters.portal]);
 
   // Wallet connection section
-  if (!plugConnected) {
+  const isWalletConnected = (plugConnected || iiLoggedIn) && principal && canisters.portal;
+  
+  if (!isWalletConnected) {
     return (
       <div className="relative min-h-screen py-8 px-2 md:px-0 flex flex-col items-center justify-center">
         <div className="glass-card-dark max-w-md w-full p-8 text-center">
           <div className="text-6xl mb-4">🏦</div>
           <h1 className="text-2xl font-bold text-yellow-100 mb-4">Staking Portal & Governance</h1>
           <p className="text-gray-300 mb-6">
-            Connect your Plug wallet to access staking and governance features
+            Connect your wallet to access staking and governance features
           </p>
-          <button
-            onClick={connectPlug}
-            className="w-full bg-gradient-to-r from-yellow-500 to-orange-500 text-gray-900 font-bold py-3 px-6 rounded-md hover:bg-yellow-600 transition-colors"
-          >
-            🔌 Connect Plug Wallet
-          </button>
+          <div className="space-y-3">
+            <p className="text-sm text-gray-400">
+              Supported wallets: Plug, Internet Identity, OISY, NFID
+            </p>
+            <p className="text-sm text-blue-300">
+              Please connect your wallet from the main navigation menu
+            </p>
+          </div>
         </div>
       </div>
     );

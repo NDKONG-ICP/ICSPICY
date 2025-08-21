@@ -2,7 +2,7 @@
   "canisters": {
     "user": { "type": "motoko", "main": "src/ic_spicy_modular/user/main.mo" },
     "ai": { "type": "motoko", "main": "src/ic_spicy_modular/ai/main.mo" },
-    "wallet": { "type": "motoko", "main": "src/ic_spicy_modular/wallet/main.mo" },
+    "wallet2": { "type": "motoko", "main": "src/ic_spicy_modular/wallet2.mo" },
     "portal": { "type": "motoko", "main": "src/ic_spicy_modular/portal/main.mo" },
     "game": { "type": "motoko", "main": "src/ic_spicy_modular/game/main.mo" },
     "blog": { "type": "motoko", "main": "src/ic_spicy_modular/blog/main.mo" },
@@ -11,7 +11,11 @@
     "chili": { "type": "motoko", "main": "src/ic_spicy_modular/chili/main.mo" },
     "profile": { "type": "motoko", "main": "src/ic_spicy_modular/profile/main.mo" },
     "whitepaper": { "type": "motoko", "main": "src/ic_spicy_modular/whitepaper/main.mo" },
-    "frontend": { "type": "assets", "source": ["src/ic_spicy_modular/frontend"] }
+    "frontend": { "type": "assets", "source": ["src/ic_spicy_modular/frontend/build"] },
+    "test_staking": {
+      "type": "motoko",
+      "main": "src/ic_spicy_modular/portal/test_staking.mo"
+    }
   },
   "defaults": {
     "build": {
@@ -20,5 +24,8 @@
     }
   },
   "output_env_file": ".env",
-  "version": 1
+  "version": 1,
+  "experimental": {
+    "http_outcalls": true
+  }
 }

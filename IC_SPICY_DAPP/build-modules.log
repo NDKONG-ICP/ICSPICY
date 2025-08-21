@@ -1,0 +1,23 @@
+Building canister 'profile'.
+Building canister 'game'.
+Building canister 'whitepaper'.
+Building canister 'chili'.
+Building canister 'wallet2'.
+Building canister 'portal'.
+Building canister 'frontend'.
+Building canister 'blog'.
+Building canister 'membership'.
+Building canister 'user'.
+Building canister 'ai'.
+Building canister 'shop'.
+[31mError: (B[mFailed while trying to build all canisters.
+[33mCaused by: (B[mThe build step failed for canister 'qgep2-u7777-77774-qaayq-cai' (profile)
+[33mCaused by: (B[mFailed to build Motoko canister 'profile'.
+[33mCaused by: (B[mFailed to compile Motoko.
+[33mCaused by: (B[mFailed to run 'moc'.
+[33mCaused by: (B[mThe command 'cd "/Users/williambeck/ic_spicy_modular_v1/IC_SPICY_DAPP" && "/Users/williambeck/.cache/dfinity/versions/0.27.0/moc" "/Users/williambeck/ic_spicy_modular_v1/IC_SPICY_DAPP/src/ic_spicy_modular/profile/main.mo" "-o" "/Users/williambeck/ic_spicy_modular_v1/IC_SPICY_DAPP/.dfx/local/canisters/profile/profile.wasm" "-c" "--debug" "--idl" "--stable-types" "--public-metadata" "candid:service" "--public-metadata" "candid:args" "--actor-idl" "/Users/williambeck/ic_spicy_modular_v1/IC_SPICY_DAPP/.dfx/local/canisters/idl/" "--actor-alias" "ai" "sh53d-qx777-77774-qaava-cai" "--actor-alias" "blog" "sa45x-5p777-77774-qaavq-cai" "--actor-alias" "chili" "sv3m2-4h777-77774-qaawa-cai" "--actor-alias" "frontend" "ss2ko-r7777-77774-qaawq-cai" "--actor-alias" "game" "s3zbs-hx777-77774-qaaxa-cai" "--actor-alias" "membership" "s4yhg-kp777-77774-qaaxq-cai" "--actor-alias" "portal" "qbfjo-zh777-77774-qaaya-cai" "--actor-alias" "profile" "qgep2-u7777-77774-qaayq-cai" "--actor-alias" "shop" "qpheg-cx777-77774-qaaza-cai" "--actor-alias" "user" "qigcs-pp777-77774-qaazq-cai" "--actor-alias" "wallet2" "q5bt7-oh777-77774-qaa2a-cai" "--actor-alias" "whitepaper" "q2avl-d7777-77774-qaa2q-cai" "--package" "base" "/Users/williambeck/.cache/dfinity/versions/0.27.0/base"' failed with exit status 'exit status: 1'.
+Stdout:
+
+Stderr:
+/Users/williambeck/ic_spicy_modular_v1/IC_SPICY_DAPP/src/ic_spicy_modular/user/main.mo:4.1-23.2: type error [M0014], non-static expression in library, module or migration expression
+

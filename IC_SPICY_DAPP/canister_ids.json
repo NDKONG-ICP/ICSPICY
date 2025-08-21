@@ -1,0 +1,44 @@
+{
+  "ai": {
+    "ic": "kriwf-jqaaa-aaaap-qp5lq-cai"
+  },
+  "blog": {
+    "ic": "l4gsl-gyaaa-aaaap-qp5ma-cai"
+  },
+  "chili": {
+    "ic": "l3hu7-laaaa-aaaap-qp5mq-cai"
+  },
+  "deepseek_agent": {
+    "ic": "oh4o2-aiaaa-aaaap-qp5ta-cai"
+  },
+  "frontend": {
+    "ic": "oo7fg-waaaa-aaaap-qp5sq-cai"
+  },
+  "game": {
+    "ic": "lvfzx-qqaaa-aaaap-qp5nq-cai"
+  },
+  "membership": {
+    "ic": "laci2-ryaaa-aaaap-qp5oa-cai"
+  },
+  "portal": {
+    "ic": "lhdoo-4aaaa-aaaap-qp5oq-cai"
+  },
+  "profile": {
+    "ic": "loafs-kiaaa-aaaap-qp5pa-cai"
+  },
+  "shop": {
+    "ic": "ljbdg-hqaaa-aaaap-qp5pq-cai"
+  },
+  "test_staking": {
+    "ic": "ov2zd-myaaa-aaaap-qp5qa-cai"
+  },
+  "user": {
+    "ic": "os37x-baaaa-aaaap-qp5qq-cai"
+  },
+  "wallet2": {
+    "ic": "o3yul-xiaaa-aaaap-qp5ra-cai"
+  },
+  "whitepaper": {
+    "ic": "o4zs7-2qaaa-aaaap-qp5rq-cai"
+  }
+}

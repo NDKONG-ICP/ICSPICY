@@ -1,0 +1,17 @@
+Building canister 'portal'.
+Building canister 'profile'.
+Building canister 'frontend'.
+Building canister 'shop'.
+Building canister 'game'.
+Building canister 'whitepaper'.
+Building canister 'membership'.
+Building canister 'blog'.
+Building canister 'wallet2'.
+Building canister 'chili'.
+Building canister 'ai'.
+WARN: /Users/williambeck/ic_spicy_modular_v1/IC_SPICY_DAPP/src/ic_spicy_modular/ai/main.mo:3.26-3.32: warning [M0198], unused field caller in object pattern (delete or rewrite as `caller = _`)
+
+Building canister 'user'.
+WARN: /Users/williambeck/ic_spicy_modular_v1/IC_SPICY_DAPP/src/ic_spicy_modular/user/main.mo:9.59-9.69: warning [M0194], unused identifier ip_address (delete or rename to wildcard `_` or `_ip_address`)
+
+Finished building canisters.

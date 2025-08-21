@@ -1,0 +1,22 @@
+Deploying: blog
+All canisters have already been created.
+Building canister 'blog'.
+Upgraded code for canister blog, with canister ID sa45x-5p777-77774-qaavq-cai
+Deployed canisters.
+URLs:
+  Frontend canister via browser:
+    frontend:
+      - http://ss2ko-r7777-77774-qaawq-cai.localhost:4943/ (Recommended)
+      - http://127.0.0.1:4943/?canisterId=ss2ko-r7777-77774-qaawq-cai (Legacy)
+  Backend canister via Candid interface:
+    ai: http://127.0.0.1:4943/?canisterId=qtd6x-vx777-77774-qaa3a-cai&id=sh53d-qx777-77774-qaava-cai
+    blog: http://127.0.0.1:4943/?canisterId=qtd6x-vx777-77774-qaa3a-cai&id=sa45x-5p777-77774-qaavq-cai
+    chili: http://127.0.0.1:4943/?canisterId=qtd6x-vx777-77774-qaa3a-cai&id=sv3m2-4h777-77774-qaawa-cai
+    game: http://127.0.0.1:4943/?canisterId=qtd6x-vx777-77774-qaa3a-cai&id=s3zbs-hx777-77774-qaaxa-cai
+    membership: http://127.0.0.1:4943/?canisterId=qtd6x-vx777-77774-qaa3a-cai&id=s4yhg-kp777-77774-qaaxq-cai
+    portal: http://127.0.0.1:4943/?canisterId=qtd6x-vx777-77774-qaa3a-cai&id=qbfjo-zh777-77774-qaaya-cai
+    profile: http://127.0.0.1:4943/?canisterId=qtd6x-vx777-77774-qaa3a-cai&id=qgep2-u7777-77774-qaayq-cai
+    shop: http://127.0.0.1:4943/?canisterId=qtd6x-vx777-77774-qaa3a-cai&id=qpheg-cx777-77774-qaaza-cai
+    user: http://127.0.0.1:4943/?canisterId=qtd6x-vx777-77774-qaa3a-cai&id=qigcs-pp777-77774-qaazq-cai
+    wallet2: http://127.0.0.1:4943/?canisterId=qtd6x-vx777-77774-qaa3a-cai&id=q5bt7-oh777-77774-qaa2a-cai
+    whitepaper: http://127.0.0.1:4943/?canisterId=qtd6x-vx777-77774-qaa3a-cai&id=q2avl-d7777-77774-qaa2q-cai

@@ -1,0 +1,59 @@
+
+> prebuild
+> npm run prebuild --workspaces --if-present
+
+
+> ic_spicy_modular_v1_frontend@0.0.0 prebuild
+> dfx generate
+
+Building canister 'ai'.
+Building canister 'blog'.
+WARN: /Users/williambeck/ic_spicy_modular_v1/src/ic_spicy_modular/blog/main.mo:38.20-38.26: warning [M0198], unused field caller in object pattern (delete or rewrite as `caller = _`)
+/Users/williambeck/ic_spicy_modular_v1/src/ic_spicy_modular/blog/main.mo:38.73-38.78: warning [M0194], unused identifier token (delete or rename to wildcard `_` or `_token`)
+
+Building canister 'chili'.
+WARN: /Users/williambeck/ic_spicy_modular_v1/src/ic_spicy_modular/chili/main.mo:3.8-3.14: warning [M0194], unused identifier Option (delete or rename to wildcard `_` or `_Option`)
+/Users/williambeck/ic_spicy_modular_v1/src/ic_spicy_modular/chili/main.mo:4.8-4.13: warning [M0194], unused identifier Array (delete or rename to wildcard `_` or `_Array`)
+/Users/williambeck/ic_spicy_modular_v1/src/ic_spicy_modular/chili/main.mo:17.20-17.26: warning [M0198], unused field caller in object pattern (delete or rewrite as `caller = _`)
+
+Building canister 'game'.
+Building canister 'membership'.
+WARN: /Users/williambeck/ic_spicy_modular_v1/src/ic_spicy_modular/membership/main.mo:3.8-3.14: warning [M0194], unused identifier Option (delete or rename to wildcard `_` or `_Option`)
+/Users/williambeck/ic_spicy_modular_v1/src/ic_spicy_modular/membership/main.mo:4.8-4.13: warning [M0194], unused identifier Array (delete or rename to wildcard `_` or `_Array`)
+/Users/williambeck/ic_spicy_modular_v1/src/ic_spicy_modular/membership/main.mo:12.20-12.26: warning [M0198], unused field caller in object pattern (delete or rewrite as `caller = _`)
+/Users/williambeck/ic_spicy_modular_v1/src/ic_spicy_modular/membership/main.mo:12.54-12.58: warning [M0194], unused identifier tier (delete or rename to wildcard `_` or `_tier`)
+/Users/williambeck/ic_spicy_modular_v1/src/ic_spicy_modular/membership/main.mo:12.67-12.76: warning [M0194], unused identifier heat_cost (delete or rename to wildcard `_` or `_heat_cost`)
+
+Building canister 'portal'.
+WARN: /Users/williambeck/ic_spicy_modular_v1/src/ic_spicy_modular/portal/main.mo:2.8-2.12: warning [M0194], unused identifier Time (delete or rename to wildcard `_` or `_Time`)
+/Users/williambeck/ic_spicy_modular_v1/src/ic_spicy_modular/portal/main.mo:4.8-4.14: warning [M0194], unused identifier Option (delete or rename to wildcard `_` or `_Option`)
+
+Building canister 'profile'.
+WARN: /Users/williambeck/ic_spicy_modular_v1/src/ic_spicy_modular/profile/main.mo:3.8-3.14: warning [M0194], unused identifier Option (delete or rename to wildcard `_` or `_Option`)
+/Users/williambeck/ic_spicy_modular_v1/src/ic_spicy_modular/profile/main.mo:13.14-13.25: warning [M0194], unused identifier nftCanister (delete or rename to wildcard `_` or `_nftCanister`)
+/Users/williambeck/ic_spicy_modular_v1/src/ic_spicy_modular/profile/main.mo:15.50-15.58: warning [M0194], unused identifier x_handle (delete or rename to wildcard `_` or `_x_handle`)
+
+Building canister 'shop'.
+Building canister 'user'.
+Building canister 'wallet'.
+Building canister 'whitepaper'.
+[31mError: (B[mFailed while trying to build all canisters.
+[33mCaused by: (B[mThe build step failed for canister 'uxrrr-q7777-77774-qaaaq-cai' (ai)
+[33mCaused by: (B[mFailed to build Motoko canister 'ai'.
+[33mCaused by: (B[mFailed to compile Motoko.
+[33mCaused by: (B[mFailed to run 'moc'.
+[33mCaused by: (B[mThe command 'cd "/Users/williambeck/ic_spicy_modular_v1" && "/Users/williambeck/.cache/dfinity/versions/0.27.0/moc" "/Users/williambeck/ic_spicy_modular_v1/src/ic_spicy_modular/ai/main.mo" "-o" "/Users/williambeck/ic_spicy_modular_v1/.dfx/local/canisters/ai/ai.wasm" "-c" "--debug" "--idl" "--stable-types" "--public-metadata" "candid:service" "--public-metadata" "candid:args" "--actor-idl" "/Users/williambeck/ic_spicy_modular_v1/.dfx/local/canisters/idl/" "--actor-alias" "ai" "uxrrr-q7777-77774-qaaaq-cai" "--actor-alias" "blog" "u6s2n-gx777-77774-qaaba-cai" "--actor-alias" "chili" "uzt4z-lp777-77774-qaabq-cai" "--actor-alias" "frontend" "umunu-kh777-77774-qaaca-cai" "--actor-alias" "game" "ulvla-h7777-77774-qaacq-cai" "--actor-alias" "membership" "ucwa4-rx777-77774-qaada-cai" "--actor-alias" "portal" "ufxgi-4p777-77774-qaadq-cai" "--actor-alias" "profile" "vizcg-th777-77774-qaaea-cai" "--actor-alias" "shop" "vpyes-67777-77774-qaaeq-cai" "--actor-alias" "user" "vg3po-ix777-77774-qaafa-cai" "--actor-alias" "wallet" "v56tl-sp777-77774-qaahq-cai" "--actor-alias" "whitepaper" "vu5yx-eh777-77774-qaaga-cai" "--package" "base" "/Users/williambeck/.cache/dfinity/versions/0.27.0/base"' failed with exit status 'exit status: 1'.
+Stdout:
+
+Stderr:
+/Users/williambeck/ic_spicy_modular_v1/src/ic_spicy_modular/ai/main.mo:6.1-8.2: type error [M0141], move these declarations into the body of the main actor or actor class
+/Users/williambeck/ic_spicy_modular_v1/src/ic_spicy_modular/ai/main.mo:10.1-23.2: type error [M0141], an actor or actor class must be the only non-imported declaration in a program
+  (This is a limitation of the current version.)
+
+npm error Lifecycle script `prebuild` failed with error:
+npm error code 255
+npm error path /Users/williambeck/ic_spicy_modular_v1/src/ic_spicy_modular_v1_frontend
+npm error workspace ic_spicy_modular_v1_frontend@0.0.0
+npm error location /Users/williambeck/ic_spicy_modular_v1/src/ic_spicy_modular_v1_frontend
+npm error command failed
+npm error command sh -c dfx generate

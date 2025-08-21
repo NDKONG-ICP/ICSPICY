@@ -1,0 +1,12 @@
+[
+  {
+    "match": "**/*",
+    "headers": [
+      {
+        "name": "Content-Security-Policy",
+        "value": "default-src 'self'; script-src 'self' 'unsafe-eval'; connect-src 'self' https://oisy.com https://nfid.one https://identity.ic0.app https://ic0.app https://icp0.io; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; frame-src https://oisy.com https://nfid.one; child-src https://oisy.com https://nfid.one;"
+      }
+    ],
+    "security_policy": "standard"
+  }
+]
